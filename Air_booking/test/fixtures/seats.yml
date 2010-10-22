@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  flight_id: 1
+  name: dolly
+  address: london
+  contact_no: 07987654321
+  baggage: 40
+
+two:
+  flight_id: 2
+  name: jenny
+  address: london
+  contact_no: 07896345231
+  baggage: 30

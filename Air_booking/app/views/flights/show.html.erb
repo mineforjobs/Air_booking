@@ -1,0 +1,39 @@
+<p>
+  <b>Departure:</b>
+  <%=h @flight.dipature %>
+</p>
+
+<p>
+  <b>Arrival:</b>
+  <%=h @flight.arrival %>
+</p>
+
+<p>
+  <b>Destination:</b>
+  <%=h @flight.destination %>
+</p>
+
+<p>
+  <b>Baggage allowance:</b>
+  <%=h @flight.baggage_allowance %>
+</p>
+
+<p>
+  <b>Capacity:</b>
+  <%=h @flight.capacity %>
+</p>
+
+
+<%= link_to 'Edit', edit_flight_path(@flight) %> 
+
+<p>
+<div id="seats">
+  <%= render :partial=>"seat_list", :locals=>{:seats=>@flight.seats}%>
+</div>
+<% periodically_call_remote(:url=>"/flights/#{@flight.id}/seats", :method=>"get", :update=>"seats", :frequency=>"20" )%>
+</p>
+
+<p>
+<%= render :partial=>"new_seat", :locals=>{:seat=>Seat.new(:flight_id=>@flight.id)}%>
+</p>
+<%= link_to 'Back', flights_path %>

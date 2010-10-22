@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  dipature: 2010-10-21 11:28:52
+  arrival: 2010-10-21 11:28:52
+  destination: hethrow
+  baggage_allowance: 30
+  capacity: 20
+
+two:
+  dipature: 2010-10-21 11:28:52
+  arrival: 2010-10-21 11:28:52
+  destination: getwik
+  baggage_allowance: 20
+  capacity: 1

@@ -1,0 +1,1541 @@
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (407.0ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW KEYS FROM `schema_migrations`[0m
+  [4;35;1mSQL (890.0ms)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateFlights (20101021102852)
+  [4;36;1mSQL (140.0ms)[0m   [0;1mCREATE TABLE `flights` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `dipature` datetime, `arrival` datetime, `destination` varchar(255), `baggage_allowance` decimal, `capacity` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (47.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20101021102852')[0m
+Migrating to CreateSeats (20101021103616)
+  [4;36;1mSQL (109.0ms)[0m   [0;1mCREATE TABLE `seats` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `flight_id` int(11), `name` varchar(255), `address` varchar(255), `contact_no` decimal, `baggage` decimal, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (47.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20101021103616')[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mSHOW FIELDS FROM `flights`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mdescribe `flights`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW KEYS FROM `flights`[0m
+  [4;36;1mSQL (15.0ms)[0m   [0;1mSHOW FIELDS FROM `seats`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mdescribe `seats`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW KEYS FROM `seats`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#index (for 127.0.0.1 at 2010-10-21 11:45:35) [GET]
+  [4;36;1mFlight Load (0.0ms)[0m   [0;1mSELECT * FROM `flights` [0m
+Rendering template within layouts/flights
+Rendering flights/index
+Completed in 938ms (View: 907, DB: 0) | 200 OK [http://localhost/flights]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#index (for 127.0.0.1 at 2010-10-21 11:46:06) [GET]
+  [4;35;1mFlight Load (0.0ms)[0m   [0mSELECT * FROM `flights` [0m
+Rendering template within layouts/flights
+Rendering flights/index
+Completed in 47ms (View: 15, DB: 0) | 200 OK [http://localhost/flights]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#index (for 127.0.0.1 at 2010-10-21 11:47:17) [GET]
+  [4;36;1mFlight Load (0.0ms)[0m   [0;1mSELECT * FROM `flights` [0m
+Rendering template within layouts/flights
+Rendering flights/index
+Completed in 31ms (View: 0, DB: 0) | 200 OK [http://localhost/flights]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#new (for 127.0.0.1 at 2010-10-21 11:47:20) [GET]
+  [4;35;1mFlight Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `flights`[0m
+Rendering template within layouts/flights
+Rendering flights/new
+Completed in 203ms (View: 172, DB: 0) | 200 OK [http://localhost/flights/new]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#create (for 127.0.0.1 at 2010-10-21 11:47:40) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"GigZ2UPHVf0BKR5tnoL88wkICpcVLP91WRCjIBXaZRk=", "flight"=>{"dipature(1i)"=>"2010", "dipature(2i)"=>"10", "destination"=>"bombay", "dipature(3i)"=>"21", "dipature(4i)"=>"10", "dipature(5i)"=>"47", "arrival(1i)"=>"2010", "baggage_allowance"=>"100", "arrival(2i)"=>"10", "capacity"=>"2", "arrival(3i)"=>"21", "arrival(4i)"=>"10", "arrival(5i)"=>"47"}}
+  [4;36;1mFlight Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mFlight Create (0.0ms)[0m   [0;1mINSERT INTO `flights` (`updated_at`, `destination`, `arrival`, `baggage_allowance`, `capacity`, `dipature`, `created_at`) VALUES('2010-10-21 10:47:40', 'bombay', '2010-10-21 10:47:00', 100, 2, '2010-10-21 10:47:00', '2010-10-21 10:47:40')[0m
+  [4;35;1mSQL (62.0ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/flights/1
+Completed in 109ms (DB: 62) | 302 Found [http://localhost/flights]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#show (for 127.0.0.1 at 2010-10-21 11:47:40) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mFlight Columns (15.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+  [4;35;1mFlight Load (0.0ms)[0m   [0mSELECT * FROM `flights` WHERE (`flights`.`id` = 1) [0m
+Rendering template within layouts/flights
+Rendering flights/show
+  [4;36;1mSeat Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `seats`[0m
+Rendered flights/_new_seat (93.0ms)
+Completed in 234ms (View: 172, DB: 15) | 200 OK [http://localhost/flights/1]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#edit (for 127.0.0.1 at 2010-10-21 11:49:47) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mFlight Columns (15.0ms)[0m   [0mSHOW FIELDS FROM `flights`[0m
+  [4;36;1mFlight Load (0.0ms)[0m   [0;1mSELECT * FROM `flights` WHERE (`flights`.`id` = 1) [0m
+Rendering template within layouts/flights
+Rendering flights/edit
+Completed in 219ms (View: 188, DB: 15) | 200 OK [http://localhost/flights/1/edit]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#update (for 127.0.0.1 at 2010-10-21 11:49:58) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"GigZ2UPHVf0BKR5tnoL88wkICpcVLP91WRCjIBXaZRk=", "id"=>"1", "flight"=>{"dipature(1i)"=>"2010", "dipature(2i)"=>"10", "destination"=>"bombay", "dipature(3i)"=>"21", "dipature(4i)"=>"10", "dipature(5i)"=>"47", "arrival(1i)"=>"2010", "baggage_allowance"=>"30", "arrival(2i)"=>"10", "capacity"=>"22", "arrival(3i)"=>"21", "arrival(4i)"=>"10", "arrival(5i)"=>"47"}}
+  [4;35;1mFlight Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `flights`[0m
+  [4;36;1mFlight Load (0.0ms)[0m   [0;1mSELECT * FROM `flights` WHERE (`flights`.`id` = 1) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mFlight Update (0.0ms)[0m   [0;1mUPDATE `flights` SET `baggage_allowance` = 30, `updated_at` = '2010-10-21 10:49:58', `capacity` = 22 WHERE `id` = 1[0m
+  [4;35;1mSQL (46.0ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/flights/1
+Completed in 93ms (DB: 46) | 302 Found [http://localhost/flights/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#show (for 127.0.0.1 at 2010-10-21 11:49:59) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mFlight Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+  [4;35;1mFlight Load (0.0ms)[0m   [0mSELECT * FROM `flights` WHERE (`flights`.`id` = 1) [0m
+Rendering template within layouts/flights
+Rendering flights/show
+  [4;36;1mSeat Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `seats`[0m
+Rendered flights/_new_seat (16.0ms)
+Completed in 110ms (View: 79, DB: 0) | 200 OK [http://localhost/flights/1]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (15.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#index (for 127.0.0.1 at 2010-10-21 11:50:06) [GET]
+  [4;35;1mFlight Load (0.0ms)[0m   [0mSELECT * FROM `flights` [0m
+Rendering template within layouts/flights
+Rendering flights/index
+  [4;36;1mFlight Columns (15.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+Completed in 78ms (View: 16, DB: 30) | 200 OK [http://localhost/flights]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#new (for 127.0.0.1 at 2010-10-21 11:52:31) [GET]
+  [4;35;1mFlight Columns (15.0ms)[0m   [0mSHOW FIELDS FROM `flights`[0m
+Rendering template within layouts/flights
+Rendering flights/new
+Completed in 93ms (View: 47, DB: 15) | 200 OK [http://localhost/flights/new]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#index (for 127.0.0.1 at 2010-10-21 11:52:35) [GET]
+  [4;36;1mFlight Load (0.0ms)[0m   [0;1mSELECT * FROM `flights` [0m
+Rendering template within layouts/flights
+Rendering flights/index
+  [4;35;1mFlight Columns (15.0ms)[0m   [0mSHOW FIELDS FROM `flights`[0m
+Completed in 62ms (View: 0, DB: 15) | 200 OK [http://localhost/flights]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#show (for 127.0.0.1 at 2010-10-21 11:52:38) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mFlight Columns (15.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+  [4;35;1mFlight Load (0.0ms)[0m   [0mSELECT * FROM `flights` WHERE (`flights`.`id` = 1) [0m
+Rendering template within layouts/flights
+Rendering flights/show
+  [4;36;1mSeat Columns (15.0ms)[0m   [0;1mSHOW FIELDS FROM `seats`[0m
+Rendered flights/_new_seat (16.0ms)
+Completed in 110ms (View: 48, DB: 30) | 200 OK [http://localhost/flights/1]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#show (for 127.0.0.1 at 2010-10-21 11:58:04) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mFlight Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `flights`[0m
+  [4;36;1mFlight Load (0.0ms)[0m   [0;1mSELECT * FROM `flights` WHERE (`flights`.`id` = 1) [0m
+Rendering template within layouts/flights
+Rendering flights/show
+  [4;35;1mSeat Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `seats`[0m
+Rendered flights/_new_seat (31.0ms)
+Completed in 359ms (View: 312, DB: 16) | 200 OK [http://localhost/flights/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#show (for 127.0.0.1 at 2010-10-21 12:03:47) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mFlight Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+  [4;35;1mFlight Load (0.0ms)[0m   [0mSELECT * FROM `flights` WHERE (`flights`.`id` = 1) [0m
+Rendering template within layouts/flights
+Rendering flights/show
+  [4;36;1mSeat Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `seats`[0m
+Rendered flights/_new_seat (15.0ms)
+Completed in 109ms (View: 62, DB: 0) | 200 OK [http://localhost/flights/1]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#index (for 127.0.0.1 at 2010-10-21 12:03:50) [GET]
+  [4;35;1mFlight Load (0.0ms)[0m   [0mSELECT * FROM `flights` [0m
+Rendering template within layouts/flights
+Rendering flights/index
+  [4;36;1mFlight Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+Completed in 62ms (View: 31, DB: 0) | 200 OK [http://localhost/flights]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#index (for 127.0.0.1 at 2010-10-21 12:05:10) [GET]
+  [4;35;1mFlight Load (0.0ms)[0m   [0mSELECT * FROM `flights` [0m
+Rendering template within layouts/flights
+Rendering flights/index
+  [4;36;1mFlight Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+Completed in 63ms (View: 32, DB: 0) | 200 OK [http://localhost/flights]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#index (for 127.0.0.1 at 2010-10-21 12:05:17) [GET]
+  [4;35;1mFlight Load (0.0ms)[0m   [0mSELECT * FROM `flights` [0m
+Rendering template within layouts/flights
+Rendering flights/index
+  [4;36;1mFlight Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+Completed in 63ms (View: 31, DB: 0) | 200 OK [http://localhost/flights]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#index (for 127.0.0.1 at 2010-10-21 12:06:09) [GET]
+  [4;35;1mFlight Load (0.0ms)[0m   [0mSELECT * FROM `flights` [0m
+Rendering template within layouts/flights
+Rendering flights/index
+  [4;36;1mFlight Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+Completed in 62ms (View: 0, DB: 16) | 200 OK [http://localhost/flights]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#index (for 127.0.0.1 at 2010-10-21 12:07:17) [GET]
+  [4;35;1mFlight Load (0.0ms)[0m   [0mSELECT * FROM `flights` [0m
+Rendering template within layouts/flights
+Rendering flights/index
+  [4;36;1mFlight Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+Completed in 63ms (View: 31, DB: 0) | 200 OK [http://localhost/flights]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#show (for 127.0.0.1 at 2010-10-21 12:07:19) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mFlight Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `flights`[0m
+  [4;36;1mFlight Load (16.0ms)[0m   [0;1mSELECT * FROM `flights` WHERE (`flights`.`id` = 1) [0m
+Rendering template within layouts/flights
+Rendering flights/show
+  [4;35;1mSeat Load (0.0ms)[0m   [0mSELECT * FROM `seats` [0m
+Rendered flights/_seat_list (0.0ms)
+  [4;36;1mSeat Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `seats`[0m
+Rendered flights/_new_seat (109.0ms)
+Completed in 265ms (View: 218, DB: 16) | 200 OK [http://localhost/flights/1]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#show (for 127.0.0.1 at 2010-10-21 12:12:38) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mFlight Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `flights`[0m
+  [4;36;1mFlight Load (0.0ms)[0m   [0;1mSELECT * FROM `flights` WHERE (`flights`.`id` = 1) [0m
+Rendering template within layouts/flights
+Rendering flights/show
+  [4;35;1mSeat Load (0.0ms)[0m   [0mSELECT * FROM `seats` WHERE (`seats`.flight_id = 1) [0m
+Rendered flights/_seat_list (15.0ms)
+  [4;36;1mSeat Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `seats`[0m
+Rendered flights/_new_seat (31.0ms)
+Completed in 375ms (View: 125, DB: 0) | 200 OK [http://localhost/flights/1]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#show (for 127.0.0.1 at 2010-10-21 12:12:42) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mFlight Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `flights`[0m
+  [4;36;1mFlight Load (0.0ms)[0m   [0;1mSELECT * FROM `flights` WHERE (`flights`.`id` = 1) [0m
+Rendering template within layouts/flights
+Rendering flights/show
+  [4;35;1mSeat Load (0.0ms)[0m   [0mSELECT * FROM `seats` WHERE (`seats`.flight_id = 1) [0m
+Rendered flights/_seat_list (0.0ms)
+  [4;36;1mSeat Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `seats`[0m
+Rendered flights/_new_seat (15.0ms)
+Completed in 109ms (View: 78, DB: 0) | 200 OK [http://localhost/flights/1]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#show (for 127.0.0.1 at 2010-10-21 12:13:21) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mFlight Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `flights`[0m
+  [4;36;1mFlight Load (0.0ms)[0m   [0;1mSELECT * FROM `flights` WHERE (`flights`.`id` = 1) [0m
+Rendering template within layouts/flights
+Rendering flights/show
+  [4;35;1mSeat Load (0.0ms)[0m   [0mSELECT * FROM `seats` WHERE (`seats`.flight_id = 1) [0m
+Rendered flights/_seat_list (0.0ms)
+  [4;36;1mSeat Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `seats`[0m
+Rendered flights/_new_seat (16.0ms)
+Completed in 125ms (View: 78, DB: 0) | 200 OK [http://localhost/flights/1]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SeatsController#create (for 127.0.0.1 at 2010-10-21 12:14:32) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"GigZ2UPHVf0BKR5tnoL88wkICpcVLP91WRCjIBXaZRk=", "seat"=>{"contact_no"=>"07991143511", "name"=>"shrida", "flight_id"=>"1", "baggage"=>"33", "address"=>"croydon"}}
+  [4;35;1mSeat Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `seats`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mFlight Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `flights`[0m
+  [4;36;1mFlight Load (0.0ms)[0m   [0;1mSELECT * FROM `flights` WHERE (`flights`.`id` = 1) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mROLLBACK[0m
+Rendering template within layouts/seats
+Rendering seats/new
+Completed in 265ms (View: 187, DB: 0) | 200 OK [http://localhost/seats]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SeatsController#create (for 127.0.0.1 at 2010-10-21 12:14:42) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"GigZ2UPHVf0BKR5tnoL88wkICpcVLP91WRCjIBXaZRk=", "seat"=>{"contact_no"=>"07991143511", "name"=>"shrida", "flight_id"=>"1", "baggage"=>"30", "address"=>"croydon"}}
+  [4;36;1mSeat Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `seats`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mFlight Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+  [4;35;1mFlight Load (0.0ms)[0m   [0mSELECT * FROM `flights` WHERE (`flights`.`id` = 1) [0m
+  [4;36;1mSeat Create (0.0ms)[0m   [0;1mINSERT INTO `seats` (`name`, `contact_no`, `updated_at`, `flight_id`, `baggage`, `address`, `created_at`) VALUES('shrida', 7991143511, '2010-10-21 11:14:42', 1, 30, 'croydon', '2010-10-21 11:14:42')[0m
+  [4;35;1mSQL (47.0ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/seats/1
+Completed in 125ms (DB: 47) | 302 Found [http://localhost/seats]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SeatsController#show (for 127.0.0.1 at 2010-10-21 12:14:42) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mSeat Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `seats`[0m
+  [4;35;1mSeat Load (0.0ms)[0m   [0mSELECT * FROM `seats` WHERE (`seats`.`id` = 1) [0m
+Rendering template within layouts/seats
+Rendering seats/show
+Completed in 63ms (View: 31, DB: 0) | 200 OK [http://localhost/seats/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SeatsController#index (for 127.0.0.1 at 2010-10-21 12:14:46) [GET]
+  [4;36;1mSeat Load (0.0ms)[0m   [0;1mSELECT * FROM `seats` [0m
+Rendering template within layouts/seats
+Rendering seats/index
+  [4;35;1mSeat Columns (15.0ms)[0m   [0mSHOW FIELDS FROM `seats`[0m
+Completed in 78ms (View: 32, DB: 15) | 200 OK [http://localhost/seats]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SeatsController#new (for 127.0.0.1 at 2010-10-21 12:14:52) [GET]
+  [4;36;1mSeat Columns (15.0ms)[0m   [0;1mSHOW FIELDS FROM `seats`[0m
+Rendering template within layouts/seats
+Rendering seats/new
+Completed in 79ms (View: 32, DB: 15) | 200 OK [http://localhost/seats/new]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SeatsController#index (for 127.0.0.1 at 2010-10-21 12:15:26) [GET]
+  [4;35;1mSeat Load (0.0ms)[0m   [0mSELECT * FROM `seats` [0m
+Rendering template within layouts/seats
+Rendering seats/index
+  [4;36;1mSeat Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `seats`[0m
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/seats]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#index (for 127.0.0.1 at 2010-10-21 12:15:59) [GET]
+  [4;35;1mFlight Load (0.0ms)[0m   [0mSELECT * FROM `flights` [0m
+Rendering template within layouts/flights
+Rendering flights/index
+  [4;36;1mFlight Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+Completed in 188ms (View: 141, DB: 16) | 200 OK [http://localhost/flights]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#index (for 127.0.0.1 at 2010-10-21 12:16:09) [GET]
+  [4;35;1mFlight Load (0.0ms)[0m   [0mSELECT * FROM `flights` [0m
+Rendering template within layouts/flights
+Rendering flights/index
+  [4;36;1mFlight Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+Completed in 63ms (View: 32, DB: 0) | 200 OK [http://localhost/flights]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#index (for 127.0.0.1 at 2010-10-21 12:16:15) [GET]
+  [4;35;1mFlight Load (0.0ms)[0m   [0mSELECT * FROM `flights` [0m
+Rendering template within layouts/flights
+Rendering flights/index
+  [4;36;1mFlight Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+Completed in 79ms (View: 47, DB: 0) | 200 OK [http://localhost/flights]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#show (for 127.0.0.1 at 2010-10-21 12:16:21) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mFlight Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `flights`[0m
+  [4;36;1mFlight Load (0.0ms)[0m   [0;1mSELECT * FROM `flights` WHERE (`flights`.`id` = 1) [0m
+Rendering template within layouts/flights
+Rendering flights/show
+  [4;35;1mSeat Load (0.0ms)[0m   [0mSELECT * FROM `seats` WHERE (`seats`.flight_id = 1) [0m
+  [4;36;1mSeat Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `seats`[0m
+Rendered flights/_seat_list (16.0ms)
+Rendered flights/_new_seat (31.0ms)
+Completed in 109ms (View: 62, DB: 16) | 200 OK [http://localhost/flights/1]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#new (for 127.0.0.1 at 2010-10-21 12:16:33) [GET]
+  [4;35;1mFlight Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `flights`[0m
+Rendering template within layouts/flights
+Rendering flights/new
+Completed in 78ms (View: 47, DB: 0) | 200 OK [http://localhost/flights/new]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#create (for 127.0.0.1 at 2010-10-21 12:17:10) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"GigZ2UPHVf0BKR5tnoL88wkICpcVLP91WRCjIBXaZRk=", "flight"=>{"dipature(1i)"=>"2010", "dipature(2i)"=>"10", "destination"=>"getwick", "dipature(3i)"=>"21", "dipature(4i)"=>"11", "dipature(5i)"=>"16", "arrival(1i)"=>"2010", "baggage_allowance"=>"45", "arrival(2i)"=>"10", "capacity"=>"2", "arrival(3i)"=>"21", "arrival(4i)"=>"11", "arrival(5i)"=>"16"}}
+  [4;36;1mFlight Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mFlight Create (0.0ms)[0m   [0;1mINSERT INTO `flights` (`updated_at`, `destination`, `arrival`, `baggage_allowance`, `capacity`, `dipature`, `created_at`) VALUES('2010-10-21 11:17:10', 'getwick', '2010-10-21 11:16:00', 45, 2, '2010-10-21 11:16:00', '2010-10-21 11:17:10')[0m
+  [4;35;1mSQL (47.0ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/flights/2
+Completed in 94ms (DB: 63) | 302 Found [http://localhost/flights]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#show (for 127.0.0.1 at 2010-10-21 12:17:10) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mFlight Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+  [4;35;1mFlight Load (0.0ms)[0m   [0mSELECT * FROM `flights` WHERE (`flights`.`id` = 2) [0m
+Rendering template within layouts/flights
+Rendering flights/show
+  [4;36;1mSeat Load (0.0ms)[0m   [0;1mSELECT * FROM `seats` WHERE (`seats`.flight_id = 2) [0m
+Rendered flights/_seat_list (0.0ms)
+  [4;35;1mSeat Columns (15.0ms)[0m   [0mSHOW FIELDS FROM `seats`[0m
+Rendered flights/_new_seat (78.0ms)
+Completed in 172ms (View: 110, DB: 15) | 200 OK [http://localhost/flights/2]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#index (for 127.0.0.1 at 2010-10-21 12:17:21) [GET]
+  [4;36;1mFlight Load (0.0ms)[0m   [0;1mSELECT * FROM `flights` [0m
+Rendering template within layouts/flights
+Rendering flights/index
+  [4;35;1mFlight Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `flights`[0m
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/flights]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#show (for 127.0.0.1 at 2010-10-21 12:17:25) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mFlight Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+  [4;35;1mFlight Load (0.0ms)[0m   [0mSELECT * FROM `flights` WHERE (`flights`.`id` = 1) [0m
+Rendering template within layouts/flights
+Rendering flights/show
+  [4;36;1mSeat Load (0.0ms)[0m   [0;1mSELECT * FROM `seats` WHERE (`seats`.flight_id = 1) [0m
+  [4;35;1mSeat Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `seats`[0m
+Rendered flights/_seat_list (15.0ms)
+Rendered flights/_new_seat (16.0ms)
+Completed in 109ms (View: 62, DB: 0) | 200 OK [http://localhost/flights/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#index (for 127.0.0.1 at 2010-10-21 12:17:29) [GET]
+  [4;36;1mFlight Load (0.0ms)[0m   [0;1mSELECT * FROM `flights` [0m
+Rendering template within layouts/flights
+Rendering flights/index
+  [4;35;1mFlight Columns (15.0ms)[0m   [0mSHOW FIELDS FROM `flights`[0m
+Completed in 78ms (View: 16, DB: 15) | 200 OK [http://localhost/flights]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SeatsController#flight_seats (for 127.0.0.1 at 2010-10-21 12:25:31) [GET]
+  Parameters: {"flight_id"=>"1"}
+  [4;36;1mFlight Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+  [4;35;1mFlight Load (0.0ms)[0m   [0mSELECT * FROM `flights` WHERE (`flights`.`id` = 1) [0m
+  [4;36;1mSeat Load (0.0ms)[0m   [0;1mSELECT * FROM `seats` WHERE (`seats`.flight_id = 1) [0m
+  [4;35;1mSeat Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `seats`[0m
+Rendered flights/_seat_list (0.0ms)
+Completed in 62ms (View: 15, DB: 0) | 200 OK [http://localhost/flights/1/seats]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#index (for 127.0.0.1 at 2010-10-21 12:31:32) [GET]
+  [4;36;1mFlight Load (0.0ms)[0m   [0;1mSELECT * FROM `flights` [0m
+Rendering template within layouts/flights
+Rendering flights/index
+  [4;35;1mFlight Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `flights`[0m
+Completed in 78ms (View: 31, DB: 0) | 200 OK [http://localhost/flights]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#show (for 127.0.0.1 at 2010-10-21 12:33:46) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mFlight Columns (15.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+  [4;35;1mFlight Load (0.0ms)[0m   [0mSELECT * FROM `flights` WHERE (`flights`.`id` = 2) [0m
+Rendering template within layouts/flights
+Rendering flights/show
+  [4;36;1mSeat Load (0.0ms)[0m   [0;1mSELECT * FROM `seats` WHERE (`seats`.flight_id = 2) [0m
+Rendered flights/_seat_list (0.0ms)
+  [4;35;1mSeat Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `seats`[0m
+Rendered flights/_new_seat (15.0ms)
+Completed in 250ms (View: 203, DB: 15) | 200 OK [http://localhost/flights/2]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SeatsController#create (for 127.0.0.1 at 2010-10-21 12:34:27) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"GigZ2UPHVf0BKR5tnoL88wkICpcVLP91WRCjIBXaZRk=", "seat"=>{"contact_no"=>"07991142222", "name"=>"sid", "flight_id"=>"2", "baggage"=>"40", "address"=>"croydon"}}
+  [4;36;1mSeat Columns (15.0ms)[0m   [0;1mSHOW FIELDS FROM `seats`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mFlight Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+  [4;35;1mFlight Load (0.0ms)[0m   [0mSELECT * FROM `flights` WHERE (`flights`.`id` = 2) [0m
+  [4;36;1mSQL (31.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `seats` WHERE (`seats`.flight_id = 2) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mROLLBACK[0m
+
+NoMethodError (undefined method `capability' for #<ActiveRecord::Associations::BelongsToAssociation:0x486d8ec>):
+  app/models/seat.rb:7:in `validate'
+  app/controllers/seats_controller.rb:46:in `create'
+  app/controllers/seats_controller.rb:45:in `create'
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (94.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SeatsController#index (for 127.0.0.1 at 2010-10-21 12:36:20) [GET]
+  [4;36;1mSeat Load (0.0ms)[0m   [0;1mSELECT * FROM `seats` [0m
+Rendering template within layouts/seats
+Rendering seats/index
+  [4;35;1mSeat Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `seats`[0m
+Completed in 62ms (View: 31, DB: 0) | 200 OK [http://localhost/seats]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#index (for 127.0.0.1 at 2010-10-21 12:36:36) [GET]
+  [4;36;1mFlight Load (0.0ms)[0m   [0;1mSELECT * FROM `flights` [0m
+Rendering template within layouts/flights
+Rendering flights/index
+  [4;35;1mFlight Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `flights`[0m
+Completed in 63ms (View: 32, DB: 0) | 200 OK [http://localhost/flights]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#show (for 127.0.0.1 at 2010-10-21 12:36:42) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mFlight Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+  [4;35;1mFlight Load (0.0ms)[0m   [0mSELECT * FROM `flights` WHERE (`flights`.`id` = 2) [0m
+Rendering template within layouts/flights
+Rendering flights/show
+  [4;36;1mSeat Load (0.0ms)[0m   [0;1mSELECT * FROM `seats` WHERE (`seats`.flight_id = 2) [0m
+Rendered flights/_seat_list (15.0ms)
+  [4;35;1mSeat Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `seats`[0m
+Rendered flights/_new_seat (47.0ms)
+Completed in 171ms (View: 125, DB: 16) | 200 OK [http://localhost/flights/2]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SeatsController#create (for 127.0.0.1 at 2010-10-21 12:37:02) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"GigZ2UPHVf0BKR5tnoL88wkICpcVLP91WRCjIBXaZRk=", "seat"=>{"contact_no"=>"07991142222", "name"=>"sid", "flight_id"=>"2", "baggage"=>"40", "address"=>"croydon"}}
+  [4;36;1mSeat Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `seats`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mFlight Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+  [4;35;1mFlight Load (0.0ms)[0m   [0mSELECT * FROM `flights` WHERE (`flights`.`id` = 2) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `seats` WHERE (`seats`.flight_id = 2) [0m
+  [4;35;1mSeat Create (0.0ms)[0m   [0mINSERT INTO `seats` (`name`, `contact_no`, `updated_at`, `flight_id`, `baggage`, `address`, `created_at`) VALUES('sid', 7991142222, '2010-10-21 11:37:02', 2, 40, 'croydon', '2010-10-21 11:37:02')[0m
+  [4;36;1mSQL (62.0ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/seats/2
+Completed in 140ms (DB: 62) | 302 Found [http://localhost/seats]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SeatsController#show (for 127.0.0.1 at 2010-10-21 12:37:02) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mSeat Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `seats`[0m
+  [4;36;1mSeat Load (0.0ms)[0m   [0;1mSELECT * FROM `seats` WHERE (`seats`.`id` = 2) [0m
+Rendering template within layouts/seats
+Rendering seats/show
+Completed in 32ms (View: 0, DB: 0) | 200 OK [http://localhost/seats/2]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SeatsController#index (for 127.0.0.1 at 2010-10-21 12:37:06) [GET]
+  [4;35;1mSeat Load (0.0ms)[0m   [0mSELECT * FROM `seats` [0m
+Rendering template within layouts/seats
+Rendering seats/index
+  [4;36;1mSeat Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `seats`[0m
+Completed in 63ms (View: 32, DB: 0) | 200 OK [http://localhost/seats]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#index (for 127.0.0.1 at 2010-10-21 12:39:51) [GET]
+  [4;35;1mFlight Load (0.0ms)[0m   [0mSELECT * FROM `flights` [0m
+Rendering template within layouts/flights
+Rendering flights/index
+  [4;36;1mFlight Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+Completed in 62ms (View: 31, DB: 0) | 200 OK [http://localhost/flights]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#show (for 127.0.0.1 at 2010-10-21 12:39:55) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mFlight Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `flights`[0m
+  [4;36;1mFlight Load (0.0ms)[0m   [0;1mSELECT * FROM `flights` WHERE (`flights`.`id` = 1) [0m
+Rendering template within layouts/flights
+Rendering flights/show
+  [4;35;1mSeat Load (0.0ms)[0m   [0mSELECT * FROM `seats` WHERE (`seats`.flight_id = 1) [0m
+  [4;36;1mSeat Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `seats`[0m
+Rendered flights/_seat_list (15.0ms)
+Rendered flights/_new_seat (16.0ms)
+Completed in 125ms (View: 79, DB: 0) | 200 OK [http://localhost/flights/1]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SeatsController#create (for 127.0.0.1 at 2010-10-21 12:40:22) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"GigZ2UPHVf0BKR5tnoL88wkICpcVLP91WRCjIBXaZRk=", "seat"=>{"contact_no"=>"07991147777", "name"=>"dhruv", "flight_id"=>"1", "baggage"=>"20", "address"=>"london"}}
+  [4;35;1mSeat Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `seats`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mFlight Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `flights`[0m
+  [4;36;1mFlight Load (0.0ms)[0m   [0;1mSELECT * FROM `flights` WHERE (`flights`.`id` = 1) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `seats` WHERE (`seats`.flight_id = 1) [0m
+  [4;36;1mSeat Create (0.0ms)[0m   [0;1mINSERT INTO `seats` (`name`, `contact_no`, `updated_at`, `flight_id`, `baggage`, `address`, `created_at`) VALUES('dhruv', 7991147777, '2010-10-21 11:40:22', 1, 20, 'london', '2010-10-21 11:40:22')[0m
+  [4;35;1mSQL (47.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSeat Load (0.0ms)[0m   [0;1mSELECT * FROM `seats` WHERE (`seats`.flight_id = 1) [0m
+Rendered flights/_seat_list (0.0ms)
+Completed in 156ms (View: 31, DB: 63) | 200 OK [http://localhost/seats]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#show (for 127.0.0.1 at 2010-10-21 13:38:42) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mFlight Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `flights`[0m
+  [4;36;1mFlight Load (0.0ms)[0m   [0;1mSELECT * FROM `flights` WHERE (`flights`.`id` = 1) [0m
+Rendering template within layouts/flights
+Rendering flights/show
+  [4;35;1mSeat Load (0.0ms)[0m   [0mSELECT * FROM `seats` WHERE (`seats`.flight_id = 1) [0m
+  [4;36;1mSeat Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `seats`[0m
+Rendered flights/_seat_list (16.0ms)
+Rendered flights/_new_seat (15.0ms)
+Completed in 234ms (View: 203, DB: 0) | 200 OK [http://localhost/flights/1]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-10-21 13:38:43) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/images/img01.gif" with {:method=>:get}):
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#show (for 127.0.0.1 at 2010-10-21 13:46:45) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mFlight Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `flights`[0m
+  [4;36;1mFlight Load (0.0ms)[0m   [0;1mSELECT * FROM `flights` WHERE (`flights`.`id` = 1) [0m
+Rendering template within layouts/flights
+Rendering flights/show
+  [4;35;1mSeat Load (0.0ms)[0m   [0mSELECT * FROM `seats` WHERE (`seats`.flight_id = 1) [0m
+  [4;36;1mSeat Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `seats`[0m
+Rendered flights/_seat_list (16.0ms)
+Rendered flights/_new_seat (31.0ms)
+Completed in 110ms (View: 62, DB: 16) | 200 OK [http://localhost/flights/1]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-10-21 13:46:46) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/images/img01.gif" with {:method=>:get}):
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#index (for 127.0.0.1 at 2010-10-21 13:46:57) [GET]
+  [4;35;1mFlight Load (0.0ms)[0m   [0mSELECT * FROM `flights` [0m
+Rendering template within layouts/flights
+Rendering flights/index
+  [4;36;1mFlight Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+Completed in 63ms (View: 16, DB: 16) | 200 OK [http://localhost/flights]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-10-21 13:46:57) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/images/img01.gif" with {:method=>:get}):
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#index (for 127.0.0.1 at 2010-10-21 13:47:53) [GET]
+  [4;35;1mFlight Load (0.0ms)[0m   [0mSELECT * FROM `flights` [0m
+Rendering template within layouts/flights
+Rendering flights/index
+  [4;36;1mFlight Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/flights]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-10-21 13:47:54) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/images/img01.gif" with {:method=>:get}):
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#index (for 127.0.0.1 at 2010-10-21 13:48:43) [GET]
+  [4;35;1mFlight Load (0.0ms)[0m   [0mSELECT * FROM `flights` [0m
+Rendering template within layouts/flights
+Rendering flights/index
+  [4;36;1mFlight Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/flights]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-10-21 13:48:43) [GET]
+
+ActionController::RoutingError (No route matches "/stylesheets/images/img01.gif" with {:method=>:get}):
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#index (for 127.0.0.1 at 2010-10-21 13:49:47) [GET]
+  [4;35;1mFlight Load (0.0ms)[0m   [0mSELECT * FROM `flights` [0m
+Rendering template within layouts/flights
+Rendering flights/index
+  [4;36;1mFlight Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/flights]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SeatsController#index (for 127.0.0.1 at 2010-10-21 13:51:36) [GET]
+  [4;35;1mSeat Load (0.0ms)[0m   [0mSELECT * FROM `seats` [0m
+Rendering template within layouts/seats
+Rendering seats/index
+  [4;36;1mSeat Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `seats`[0m
+Completed in 78ms (View: 47, DB: 0) | 200 OK [http://localhost/seats]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SeatsController#index (for 127.0.0.1 at 2010-10-21 13:52:47) [GET]
+  [4;35;1mSeat Load (0.0ms)[0m   [0mSELECT * FROM `seats` [0m
+Rendering template within layouts/seats
+Rendering seats/index
+  [4;36;1mSeat Columns (15.0ms)[0m   [0;1mSHOW FIELDS FROM `seats`[0m
+Completed in 172ms (View: 126, DB: 15) | 200 OK [http://localhost/seats]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SeatsController#index (for 127.0.0.1 at 2010-10-21 13:53:14) [GET]
+  [4;35;1mSeat Load (0.0ms)[0m   [0mSELECT * FROM `seats` [0m
+Rendering template within layouts/seats
+Rendering seats/index
+  [4;36;1mSeat Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `seats`[0m
+Completed in 62ms (View: 46, DB: 0) | 200 OK [http://localhost/seats]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SeatsController#index (for 127.0.0.1 at 2010-10-21 13:54:22) [GET]
+  [4;35;1mSeat Load (0.0ms)[0m   [0mSELECT * FROM `seats` [0m
+Rendering template within layouts/seats
+Rendering seats/index
+  [4;36;1mSeat Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `seats`[0m
+Completed in 78ms (View: 47, DB: 0) | 200 OK [http://localhost/seats]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (15.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SeatsController#index (for 127.0.0.1 at 2010-10-21 13:56:35) [GET]
+  [4;35;1mSeat Load (0.0ms)[0m   [0mSELECT * FROM `seats` [0m
+Rendering template within layouts/seats
+Rendering seats/index
+  [4;36;1mSeat Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `seats`[0m
+Completed in 63ms (View: 31, DB: 15) | 200 OK [http://localhost/seats]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SeatsController#show (for 127.0.0.1 at 2010-10-21 13:56:52) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mSeat Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `seats`[0m
+  [4;36;1mSeat Load (0.0ms)[0m   [0;1mSELECT * FROM `seats` WHERE (`seats`.`id` = 1) [0m
+Rendering template within layouts/seats
+Rendering seats/show
+Completed in 47ms (View: 15, DB: 16) | 200 OK [http://localhost/seats/1]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SeatsController#index (for 127.0.0.1 at 2010-10-21 13:56:56) [GET]
+  [4;35;1mSeat Load (0.0ms)[0m   [0mSELECT * FROM `seats` [0m
+Rendering template within layouts/seats
+Rendering seats/index
+  [4;36;1mSeat Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `seats`[0m
+Completed in 62ms (View: 15, DB: 16) | 200 OK [http://localhost/seats]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (16.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SeatsController#edit (for 127.0.0.1 at 2010-10-21 13:56:58) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mSeat Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `seats`[0m
+  [4;36;1mSeat Load (0.0ms)[0m   [0;1mSELECT * FROM `seats` WHERE (`seats`.`id` = 1) [0m
+Rendering template within layouts/seats
+Rendering seats/edit
+Completed in 78ms (View: 63, DB: 16) | 200 OK [http://localhost/seats/1/edit]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SeatsController#index (for 127.0.0.1 at 2010-10-21 13:57:08) [GET]
+  [4;35;1mSeat Load (0.0ms)[0m   [0mSELECT * FROM `seats` [0m
+Rendering template within layouts/seats
+Rendering seats/index
+  [4;36;1mSeat Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `seats`[0m
+Completed in 47ms (View: 32, DB: 0) | 200 OK [http://localhost/seats]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SeatsController#new (for 127.0.0.1 at 2010-10-21 13:57:16) [GET]
+  [4;35;1mSeat Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `seats`[0m
+Rendering template within layouts/seats
+Rendering seats/new
+Completed in 63ms (View: 32, DB: 0) | 200 OK [http://localhost/seats/new]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SeatsController#new (for 127.0.0.1 at 2010-10-21 13:58:28) [GET]
+  [4;36;1mSeat Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `seats`[0m
+Rendering template within layouts/seats
+Rendering seats/new
+Completed in 78ms (View: 47, DB: 16) | 200 OK [http://localhost/seats/new]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SeatsController#new (for 127.0.0.1 at 2010-10-21 13:59:22) [GET]
+  [4;35;1mSeat Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `seats`[0m
+Rendering template within layouts/seats
+Rendering seats/new
+Completed in 78ms (View: 47, DB: 0) | 200 OK [http://localhost/seats/new]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#index (for 127.0.0.1 at 2010-10-21 14:00:41) [GET]
+  [4;36;1mFlight Load (0.0ms)[0m   [0;1mSELECT * FROM `flights` [0m
+Rendering template within layouts/flights
+Rendering flights/index
+  [4;35;1mFlight Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `flights`[0m
+Completed in 62ms (View: 31, DB: 0) | 200 OK [http://localhost/flights]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SeatsController#index (for 127.0.0.1 at 2010-10-21 14:01:01) [GET]
+  [4;36;1mSeat Load (0.0ms)[0m   [0;1mSELECT * FROM `seats` [0m
+Rendering template within layouts/seats
+Rendering seats/index
+  [4;35;1mSeat Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `seats`[0m
+Completed in 78ms (View: 47, DB: 0) | 200 OK [http://localhost/seats]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#index (for 127.0.0.1 at 2010-10-21 14:01:04) [GET]
+  [4;36;1mFlight Load (0.0ms)[0m   [0;1mSELECT * FROM `flights` [0m
+Rendering template within layouts/flights
+Rendering flights/index
+  [4;35;1mFlight Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `flights`[0m
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/flights]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SeatsController#index (for 127.0.0.1 at 2010-10-21 14:02:14) [GET]
+  [4;36;1mSeat Load (0.0ms)[0m   [0;1mSELECT * FROM `seats` [0m
+Rendering template within layouts/seats
+Rendering seats/index
+  [4;35;1mSeat Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `seats`[0m
+Completed in 62ms (View: 15, DB: 16) | 200 OK [http://localhost/seats]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#index (for 127.0.0.1 at 2010-10-21 14:04:37) [GET]
+  [4;36;1mFlight Load (0.0ms)[0m   [0;1mSELECT * FROM `flights` [0m
+Rendering template within layouts/flights
+Rendering flights/index
+  [4;35;1mFlight Columns (15.0ms)[0m   [0mSHOW FIELDS FROM `flights`[0m
+Completed in 78ms (View: 32, DB: 15) | 200 OK [http://localhost/flights]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#index (for 127.0.0.1 at 2010-10-21 14:06:08) [GET]
+  [4;36;1mFlight Load (0.0ms)[0m   [0;1mSELECT * FROM `flights` [0m
+Rendering template within layouts/flights
+Rendering flights/index
+  [4;35;1mFlight Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `flights`[0m
+Completed in 63ms (View: 47, DB: 0) | 200 OK [http://localhost/flights]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#new (for 127.0.0.1 at 2010-10-21 14:06:41) [GET]
+  [4;36;1mFlight Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+Rendering template within layouts/flights
+Rendering flights/new
+Completed in 78ms (View: 47, DB: 0) | 200 OK [http://localhost/flights/new]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#index (for 127.0.0.1 at 2010-10-21 14:07:04) [GET]
+  [4;35;1mFlight Load (0.0ms)[0m   [0mSELECT * FROM `flights` [0m
+Rendering template within layouts/flights
+Rendering flights/index
+  [4;36;1mFlight Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+Completed in 47ms (View: 16, DB: 0) | 200 OK [http://localhost/flights]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#show (for 127.0.0.1 at 2010-10-21 14:07:07) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mFlight Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `flights`[0m
+  [4;36;1mFlight Load (0.0ms)[0m   [0;1mSELECT * FROM `flights` WHERE (`flights`.`id` = 1) [0m
+Rendering template within layouts/flights
+Rendering flights/show
+  [4;35;1mSeat Load (0.0ms)[0m   [0mSELECT * FROM `seats` WHERE (`seats`.flight_id = 1) [0m
+  [4;36;1mSeat Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `seats`[0m
+Rendered flights/_seat_list (15.0ms)
+Rendered flights/_new_seat (16.0ms)
+Completed in 219ms (View: 188, DB: 0) | 200 OK [http://localhost/flights/1]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#index (for 127.0.0.1 at 2010-10-21 14:07:42) [GET]
+  [4;35;1mFlight Load (0.0ms)[0m   [0mSELECT * FROM `flights` [0m
+Rendering template within layouts/flights
+Rendering flights/index
+  [4;36;1mFlight Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+Completed in 47ms (View: 32, DB: 0) | 200 OK [http://localhost/flights]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#show (for 127.0.0.1 at 2010-10-21 14:07:46) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mFlight Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `flights`[0m
+  [4;36;1mFlight Load (0.0ms)[0m   [0;1mSELECT * FROM `flights` WHERE (`flights`.`id` = 1) [0m
+Rendering template within layouts/flights
+Rendering flights/show
+  [4;35;1mSeat Load (0.0ms)[0m   [0mSELECT * FROM `seats` WHERE (`seats`.flight_id = 1) [0m
+  [4;36;1mSeat Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `seats`[0m
+Rendered flights/_seat_list (15.0ms)
+Rendered flights/_new_seat (16.0ms)
+Completed in 94ms (View: 78, DB: 0) | 200 OK [http://localhost/flights/1]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#show (for 127.0.0.1 at 2010-10-21 14:09:49) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mFlight Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `flights`[0m
+  [4;36;1mFlight Load (0.0ms)[0m   [0;1mSELECT * FROM `flights` WHERE (`flights`.`id` = 1) [0m
+Rendering template within layouts/flights
+Rendering flights/show
+  [4;35;1mSeat Load (0.0ms)[0m   [0mSELECT * FROM `seats` WHERE (`seats`.flight_id = 1) [0m
+  [4;36;1mSeat Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `seats`[0m
+Rendered flights/_seat_list (16.0ms)
+Rendered flights/_new_seat (15.0ms)
+Completed in 109ms (View: 78, DB: 16) | 200 OK [http://localhost/flights/1]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#show (for 127.0.0.1 at 2010-10-21 14:10:13) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mFlight Columns (15.0ms)[0m   [0mSHOW FIELDS FROM `flights`[0m
+  [4;36;1mFlight Load (0.0ms)[0m   [0;1mSELECT * FROM `flights` WHERE (`flights`.`id` = 1) [0m
+Rendering template within layouts/flights
+Rendering flights/show
+  [4;35;1mSeat Load (0.0ms)[0m   [0mSELECT * FROM `seats` WHERE (`seats`.flight_id = 1) [0m
+  [4;36;1mSeat Columns (15.0ms)[0m   [0;1mSHOW FIELDS FROM `seats`[0m
+Rendered flights/_seat_list (15.0ms)
+Rendered flights/_new_seat (15.0ms)
+Completed in 234ms (View: 188, DB: 30) | 200 OK [http://localhost/flights/1]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#edit (for 127.0.0.1 at 2010-10-21 14:10:57) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mFlight Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `flights`[0m
+  [4;36;1mFlight Load (0.0ms)[0m   [0;1mSELECT * FROM `flights` WHERE (`flights`.`id` = 1) [0m
+Rendering template within layouts/flights
+Rendering flights/edit
+Completed in 94ms (View: 62, DB: 0) | 200 OK [http://localhost/flights/1/edit]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#index (for 127.0.0.1 at 2010-10-21 14:11:06) [GET]
+  [4;35;1mFlight Load (0.0ms)[0m   [0mSELECT * FROM `flights` [0m
+Rendering template within layouts/flights
+Rendering flights/index
+  [4;36;1mFlight Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+Completed in 47ms (View: 16, DB: 16) | 200 OK [http://localhost/flights]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#show (for 127.0.0.1 at 2010-10-21 14:11:15) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mFlight Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `flights`[0m
+  [4;36;1mFlight Load (0.0ms)[0m   [0;1mSELECT * FROM `flights` WHERE (`flights`.`id` = 1) [0m
+Rendering template within layouts/flights
+Rendering flights/show
+  [4;35;1mSeat Load (0.0ms)[0m   [0mSELECT * FROM `seats` WHERE (`seats`.flight_id = 1) [0m
+  [4;36;1mSeat Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `seats`[0m
+Rendered flights/_seat_list (16.0ms)
+Rendered flights/_new_seat (15.0ms)
+Completed in 109ms (View: 78, DB: 16) | 200 OK [http://localhost/flights/1]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#index (for 127.0.0.1 at 2010-10-21 14:11:19) [GET]
+  [4;35;1mFlight Load (0.0ms)[0m   [0mSELECT * FROM `flights` [0m
+Rendering template within layouts/flights
+Rendering flights/index
+  [4;36;1mFlight Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+Completed in 46ms (View: 31, DB: 0) | 200 OK [http://localhost/flights]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW FULL TABLES WHERE Table_type = 'BASE TABLE'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW CREATE TABLE `flights`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSHOW CREATE TABLE `schema_migrations`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSHOW CREATE TABLE `seats`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mDROP DATABASE IF EXISTS `Air_booking_test`[0m
+  [4;36;1mSQL (390.0ms)[0m   [0;1mCREATE DATABASE `Air_booking_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET foreign_key_checks = 0[0m
+  [4;36;1mSQL (110.0ms)[0m   [0;1mCREATE TABLE `flights` (
+ `id` int(11) NOT NULL auto_increment,
+ `dipature` datetime default NULL,
+ `arrival` datetime default NULL,
+ `destination` varchar(255) collate utf8_unicode_ci default NULL,
+ `baggage_allowance` decimal(10,0) default NULL,
+ `capacity` int(11) default NULL,
+ `created_at` datetime default NULL,
+ `updated_at` datetime default NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;[0m
+  [4;35;1mSQL (78.0ms)[0m   [0mCREATE TABLE `schema_migrations` (
+ `version` varchar(255) collate utf8_unicode_ci NOT NULL,
+ UNIQUE KEY `unique_schema_migrations` (`version`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;[0m
+  [4;36;1mSQL (140.0ms)[0m   [0;1mCREATE TABLE `seats` (
+ `id` int(11) NOT NULL auto_increment,
+ `flight_id` int(11) default NULL,
+ `name` varchar(255) collate utf8_unicode_ci default NULL,
+ `address` varchar(255) collate utf8_unicode_ci default NULL,
+ `contact_no` decimal(10,0) default NULL,
+ `baggage` decimal(10,0) default NULL,
+ `created_at` datetime default NULL,
+ `updated_at` datetime default NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;[0m
+  [4;35;1mSQL (47.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20101021102852');[0m
+  [4;36;1mSQL (31.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20101021103616');[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#index (for 127.0.0.1 at 2010-10-21 22:15:52) [GET]
+  [4;35;1mFlight Load (15.0ms)[0m   [0mSELECT * FROM `flights` [0m
+Rendering template within layouts/flights
+Rendering flights/index
+  [4;36;1mFlight Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+Completed in 47ms (View: 16, DB: 15) | 200 OK [http://localhost/flights]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#new (for 127.0.0.1 at 2010-10-21 22:15:57) [GET]
+  [4;35;1mFlight Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `flights`[0m
+Rendering template within layouts/flights
+Rendering flights/new
+Completed in 79ms (View: 63, DB: 0) | 200 OK [http://localhost/flights/new]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#show (for 127.0.0.1 at 2010-10-21 22:16:05) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mFlight Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+  [4;35;1mFlight Load (0.0ms)[0m   [0mSELECT * FROM `flights` WHERE (`flights`.`id` = 2) [0m
+Rendering template within layouts/flights
+Rendering flights/show
+  [4;36;1mSeat Load (0.0ms)[0m   [0;1mSELECT * FROM `seats` WHERE (`seats`.flight_id = 2) [0m
+  [4;35;1mSeat Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `seats`[0m
+Rendered flights/_seat_list (15.0ms)
+Rendered flights/_new_seat (16.0ms)
+Completed in 110ms (View: 78, DB: 16) | 200 OK [http://localhost/flights/2]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SeatsController#create (for 127.0.0.1 at 2010-10-21 22:16:39) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"GigZ2UPHVf0BKR5tnoL88wkICpcVLP91WRCjIBXaZRk=", "seat"=>{"contact_no"=>"07991143511", "name"=>"shrida", "flight_id"=>"2", "baggage"=>"20", "address"=>"croydon"}}
+  [4;36;1mSeat Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `seats`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mFlight Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+  [4;35;1mFlight Load (0.0ms)[0m   [0mSELECT * FROM `flights` WHERE (`flights`.`id` = 2) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `seats` WHERE (`seats`.flight_id = 2) [0m
+  [4;35;1mSeat Create (0.0ms)[0m   [0mINSERT INTO `seats` (`name`, `contact_no`, `updated_at`, `flight_id`, `baggage`, `address`, `created_at`) VALUES('shrida', 7991143511, '2010-10-21 21:16:39', 2, 20, 'croydon', '2010-10-21 21:16:39')[0m
+  [4;36;1mSQL (47.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSeat Load (0.0ms)[0m   [0mSELECT * FROM `seats` WHERE (`seats`.flight_id = 2) [0m
+Rendered flights/_seat_list (15.0ms)
+Completed in 125ms (View: 15, DB: 47) | 200 OK [http://localhost/seats]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SeatsController#create (for 127.0.0.1 at 2010-10-21 22:16:45) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"GigZ2UPHVf0BKR5tnoL88wkICpcVLP91WRCjIBXaZRk=", "seat"=>{"contact_no"=>"07991143511", "name"=>"shrida", "flight_id"=>"2", "baggage"=>"20", "address"=>"croydon"}}
+  [4;36;1mSeat Columns (15.0ms)[0m   [0;1mSHOW FIELDS FROM `seats`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mFlight Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+  [4;35;1mFlight Load (0.0ms)[0m   [0mSELECT * FROM `flights` WHERE (`flights`.`id` = 2) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `seats` WHERE (`seats`.flight_id = 2) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSeat Load (0.0ms)[0m   [0;1mSELECT * FROM `seats` WHERE (`seats`.flight_id = 2) [0m
+Rendered flights/_seat_list (0.0ms)
+Completed in 78ms (View: 15, DB: 31) | 200 OK [http://localhost/seats]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SeatsController#create (for 127.0.0.1 at 2010-10-21 22:16:55) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"GigZ2UPHVf0BKR5tnoL88wkICpcVLP91WRCjIBXaZRk=", "seat"=>{"contact_no"=>"07991143511", "name"=>"shrida", "flight_id"=>"2", "baggage"=>"20", "address"=>"croydon"}}
+  [4;35;1mSeat Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `seats`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mFlight Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `flights`[0m
+  [4;36;1mFlight Load (0.0ms)[0m   [0;1mSELECT * FROM `flights` WHERE (`flights`.`id` = 2) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `seats` WHERE (`seats`.flight_id = 2) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSeat Load (0.0ms)[0m   [0mSELECT * FROM `seats` WHERE (`seats`.flight_id = 2) [0m
+Rendered flights/_seat_list (16.0ms)
+Completed in 79ms (View: 16, DB: 0) | 200 OK [http://localhost/seats]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SeatsController#create (for 127.0.0.1 at 2010-10-21 22:17:03) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"GigZ2UPHVf0BKR5tnoL88wkICpcVLP91WRCjIBXaZRk=", "seat"=>{"contact_no"=>"07991143511", "name"=>"shrida", "flight_id"=>"2", "baggage"=>"20", "address"=>"croydon"}}
+  [4;36;1mSeat Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `seats`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mFlight Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+  [4;35;1mFlight Load (0.0ms)[0m   [0mSELECT * FROM `flights` WHERE (`flights`.`id` = 2) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `seats` WHERE (`seats`.flight_id = 2) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSeat Load (0.0ms)[0m   [0;1mSELECT * FROM `seats` WHERE (`seats`.flight_id = 2) [0m
+Rendered flights/_seat_list (0.0ms)
+Completed in 62ms (View: 15, DB: 0) | 200 OK [http://localhost/seats]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#show (for 127.0.0.1 at 2010-10-21 22:17:28) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mFlight Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `flights`[0m
+  [4;36;1mFlight Load (0.0ms)[0m   [0;1mSELECT * FROM `flights` WHERE (`flights`.`id` = 1) [0m
+Rendering template within layouts/flights
+Rendering flights/show
+  [4;35;1mSeat Load (0.0ms)[0m   [0mSELECT * FROM `seats` WHERE (`seats`.flight_id = 1) [0m
+  [4;36;1mSeat Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `seats`[0m
+Rendered flights/_seat_list (16.0ms)
+Rendered flights/_new_seat (15.0ms)
+Completed in 93ms (View: 62, DB: 0) | 200 OK [http://localhost/flights/1]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SeatsController#create (for 127.0.0.1 at 2010-10-21 22:18:16) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"GigZ2UPHVf0BKR5tnoL88wkICpcVLP91WRCjIBXaZRk=", "seat"=>{"contact_no"=>"07991142221", "name"=>"jenny", "flight_id"=>"1", "baggage"=>"20", "address"=>"surrey"}}
+  [4;35;1mSeat Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `seats`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mFlight Columns (16.0ms)[0m   [0mSHOW FIELDS FROM `flights`[0m
+  [4;36;1mFlight Load (0.0ms)[0m   [0;1mSELECT * FROM `flights` WHERE (`flights`.`id` = 1) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `seats` WHERE (`seats`.flight_id = 1) [0m
+  [4;36;1mSeat Create (0.0ms)[0m   [0;1mINSERT INTO `seats` (`name`, `contact_no`, `updated_at`, `flight_id`, `baggage`, `address`, `created_at`) VALUES('jenny', 7991142221, '2010-10-21 21:18:16', 1, 20, 'surrey', '2010-10-21 21:18:16')[0m
+  [4;35;1mSQL (47.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSeat Load (0.0ms)[0m   [0;1mSELECT * FROM `seats` WHERE (`seats`.flight_id = 1) [0m
+Rendered flights/_seat_list (0.0ms)
+Completed in 141ms (View: 15, DB: 63) | 200 OK [http://localhost/seats]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#index (for 127.0.0.1 at 2010-10-21 22:18:27) [GET]
+  [4;35;1mFlight Load (0.0ms)[0m   [0mSELECT * FROM `flights` [0m
+Rendering template within layouts/flights
+Rendering flights/index
+  [4;36;1mFlight Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+Completed in 47ms (View: 31, DB: 0) | 200 OK [http://localhost/flights]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#new (for 127.0.0.1 at 2010-10-21 22:19:49) [GET]
+  [4;35;1mFlight Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `flights`[0m
+Rendering template within layouts/flights
+Rendering flights/new
+Completed in 78ms (View: 62, DB: 0) | 200 OK [http://localhost/flights/new]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#new (for 127.0.0.1 at 2010-10-21 22:22:17) [GET]
+  [4;36;1mFlight Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+Rendering template within layouts/flights
+Rendering flights/new
+Completed in 78ms (View: 47, DB: 16) | 200 OK [http://localhost/flights/new]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#new (for 127.0.0.1 at 2010-10-21 22:24:29) [GET]
+  [4;35;1mFlight Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `flights`[0m
+Rendering template within layouts/flights
+Rendering flights/new
+Completed in 203ms (View: 188, DB: 0) | 200 OK [http://localhost/flights/new]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#index (for 127.0.0.1 at 2010-10-21 22:24:33) [GET]
+  [4;36;1mFlight Load (0.0ms)[0m   [0;1mSELECT * FROM `flights` [0m
+Rendering template within layouts/flights
+Rendering flights/index
+  [4;35;1mFlight Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `flights`[0m
+Completed in 62ms (View: 47, DB: 0) | 200 OK [http://localhost/flights]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#index (for 127.0.0.1 at 2010-10-21 23:05:09) [GET]
+  [4;36;1mFlight Load (0.0ms)[0m   [0;1mSELECT * FROM `flights` [0m
+Rendering template within layouts/flights
+Rendering flights/index
+  [4;35;1mFlight Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `flights`[0m
+Completed in 63ms (View: 31, DB: 0) | 200 OK [http://localhost/flights]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#new (for 127.0.0.1 at 2010-10-21 23:05:12) [GET]
+  [4;36;1mFlight Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+Rendering template within layouts/flights
+Rendering flights/new
+Completed in 93ms (View: 62, DB: 0) | 200 OK [http://localhost/flights/new]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#create (for 127.0.0.1 at 2010-10-21 23:06:52) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"GigZ2UPHVf0BKR5tnoL88wkICpcVLP91WRCjIBXaZRk=", "flight"=>{"dipature(1i)"=>"2010", "dipature(2i)"=>"10", "destination"=>"d", "dipature(3i)"=>"21", "dipature(4i)"=>"22", "dipature(5i)"=>"05", "arrival(1i)"=>"2010", "baggage_allowance"=>"d", "arrival(2i)"=>"10", "capacity"=>"d", "arrival(3i)"=>"21", "arrival(4i)"=>"22", "arrival(5i)"=>"05"}}
+  [4;35;1mFlight Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `flights`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mROLLBACK[0m
+Rendering template within layouts/flights
+Rendering flights/new
+Completed in 93ms (View: 46, DB: 0) | 200 OK [http://localhost/flights]
+  [4;36;1mSQL (15.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#create (for 127.0.0.1 at 2010-10-21 23:07:08) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"GigZ2UPHVf0BKR5tnoL88wkICpcVLP91WRCjIBXaZRk=", "flight"=>{"dipature(1i)"=>"2010", "dipature(2i)"=>"10", "destination"=>"d", "dipature(3i)"=>"21", "dipature(4i)"=>"22", "dipature(5i)"=>"05", "arrival(1i)"=>"2010", "baggage_allowance"=>"", "arrival(2i)"=>"10", "capacity"=>"", "arrival(3i)"=>"21", "arrival(4i)"=>"22", "arrival(5i)"=>"05"}}
+  [4;36;1mFlight Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/flights
+Rendering flights/new
+Completed in 234ms (View: 187, DB: 15) | 200 OK [http://localhost/flights]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#create (for 127.0.0.1 at 2010-10-21 23:07:45) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"GigZ2UPHVf0BKR5tnoL88wkICpcVLP91WRCjIBXaZRk=", "flight"=>{"dipature(1i)"=>"2010", "dipature(2i)"=>"10", "destination"=>"banglure", "dipature(3i)"=>"21", "dipature(4i)"=>"22", "dipature(5i)"=>"05", "arrival(1i)"=>"2010", "baggage_allowance"=>"30", "arrival(2i)"=>"10", "capacity"=>"20", "arrival(3i)"=>"21", "arrival(4i)"=>"22", "arrival(5i)"=>"05"}}
+  [4;35;1mFlight Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `flights`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mFlight Create (0.0ms)[0m   [0mINSERT INTO `flights` (`updated_at`, `destination`, `arrival`, `baggage_allowance`, `capacity`, `dipature`, `created_at`) VALUES('2010-10-21 22:07:45', 'banglure', '2010-10-21 22:05:00', 30, 20, '2010-10-21 22:05:00', '2010-10-21 22:07:45')[0m
+  [4;36;1mSQL (31.0ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/flights/3
+Completed in 62ms (DB: 31) | 302 Found [http://localhost/flights]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#show (for 127.0.0.1 at 2010-10-21 23:07:45) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mFlight Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `flights`[0m
+  [4;36;1mFlight Load (0.0ms)[0m   [0;1mSELECT * FROM `flights` WHERE (`flights`.`id` = 3) [0m
+Rendering template within layouts/flights
+Rendering flights/show
+  [4;35;1mSeat Load (0.0ms)[0m   [0mSELECT * FROM `seats` WHERE (`seats`.flight_id = 3) [0m
+Rendered flights/_seat_list (16.0ms)
+  [4;36;1mSeat Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `seats`[0m
+Rendered flights/_new_seat (31.0ms)
+Completed in 110ms (View: 78, DB: 0) | 200 OK [http://localhost/flights/3]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SeatsController#create (for 127.0.0.1 at 2010-10-21 23:08:39) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"GigZ2UPHVf0BKR5tnoL88wkICpcVLP91WRCjIBXaZRk=", "seat"=>{"contact_no"=>"07991143513", "name"=>"richal", "flight_id"=>"3", "baggage"=>"20", "address"=>"brighton"}}
+  [4;35;1mSeat Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `seats`[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mFlight Columns (0.0ms)[0m   [0mSHOW FIELDS FROM `flights`[0m
+  [4;36;1mFlight Load (0.0ms)[0m   [0;1mSELECT * FROM `flights` WHERE (`flights`.`id` = 3) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM `seats` WHERE (`seats`.flight_id = 3) [0m
+  [4;36;1mSeat Create (0.0ms)[0m   [0;1mINSERT INTO `seats` (`name`, `contact_no`, `updated_at`, `flight_id`, `baggage`, `address`, `created_at`) VALUES('richal', 7991143513, '2010-10-21 22:08:39', 3, 20, 'brighton', '2010-10-21 22:08:39')[0m
+  [4;35;1mSQL (32.0ms)[0m   [0mCOMMIT[0m
+Rendered flights/_seat_list (0.0ms)
+Completed in 109ms (View: 15, DB: 32) | 200 OK [http://localhost/seats]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SeatsController#create (for 127.0.0.1 at 2010-10-21 23:08:53) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"GigZ2UPHVf0BKR5tnoL88wkICpcVLP91WRCjIBXaZRk=", "seat"=>{"contact_no"=>"07991143513", "name"=>"richal", "flight_id"=>"3", "baggage"=>"20", "address"=>"brighton"}}
+  [4;36;1mSeat Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `seats`[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mFlight Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+  [4;35;1mFlight Load (0.0ms)[0m   [0mSELECT * FROM `flights` WHERE (`flights`.`id` = 3) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM `seats` WHERE (`seats`.flight_id = 3) [0m
+  [4;35;1mSeat Create (0.0ms)[0m   [0mINSERT INTO `seats` (`name`, `contact_no`, `updated_at`, `flight_id`, `baggage`, `address`, `created_at`) VALUES('richal', 7991143513, '2010-10-21 22:08:53', 3, 20, 'brighton', '2010-10-21 22:08:53')[0m
+  [4;36;1mSQL (47.0ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSeat Load (0.0ms)[0m   [0mSELECT * FROM `seats` WHERE (`seats`.flight_id = 3) [0m
+Rendered flights/_seat_list (0.0ms)
+Completed in 156ms (View: 31, DB: 47) | 200 OK [http://localhost/seats]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SeatsController#destroy (for 127.0.0.1 at 2010-10-21 23:09:44) [DELETE]
+  Parameters: {"authenticity_token"=>"GigZ2UPHVf0BKR5tnoL88wkICpcVLP91WRCjIBXaZRk=", "id"=>"7"}
+  [4;36;1mSeat Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `seats`[0m
+  [4;35;1mSeat Load (0.0ms)[0m   [0mSELECT * FROM `seats` WHERE (`seats`.`id` = 7) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSeat Destroy (0.0ms)[0m   [0mDELETE FROM `seats` WHERE `id` = 7[0m
+  [4;36;1mSQL (203.0ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/seats
+Completed in 219ms (DB: 203) | 302 Found [http://localhost/seats/7]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SeatsController#index (for 127.0.0.1 at 2010-10-21 23:09:45) [GET]
+  [4;35;1mSeat Load (0.0ms)[0m   [0mSELECT * FROM `seats` [0m
+Rendering template within layouts/seats
+Rendering seats/index
+  [4;36;1mSeat Columns (16.0ms)[0m   [0;1mSHOW FIELDS FROM `seats`[0m
+Completed in 62ms (View: 15, DB: 16) | 200 OK [http://localhost/seats]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SeatsController#index (for 127.0.0.1 at 2010-10-21 23:10:33) [GET]
+  [4;35;1mSeat Load (0.0ms)[0m   [0mSELECT * FROM `seats` [0m
+Rendering template within layouts/seats
+Rendering seats/index
+  [4;36;1mSeat Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `seats`[0m
+Completed in 188ms (View: 172, DB: 0) | 200 OK [http://localhost/seats]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#index (for 127.0.0.1 at 2010-10-21 23:10:42) [GET]
+  [4;35;1mFlight Load (16.0ms)[0m   [0mSELECT * FROM `flights` [0m
+Rendering template within layouts/flights
+Rendering flights/index
+  [4;36;1mFlight Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+Completed in 47ms (View: 16, DB: 16) | 200 OK [http://localhost/flights]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#index (for 127.0.0.1 at 2010-10-21 23:12:26) [GET]
+  [4;35;1mFlight Load (0.0ms)[0m   [0mSELECT * FROM `flights` [0m
+Rendering template within layouts/flights
+Rendering flights/index
+  [4;36;1mFlight Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+Completed in 62ms (View: 31, DB: 0) | 200 OK [http://localhost/flights]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#index (for 127.0.0.1 at 2010-10-21 23:13:30) [GET]
+  [4;35;1mFlight Load (0.0ms)[0m   [0mSELECT * FROM `flights` [0m
+Rendering template within layouts/flights
+Rendering flights/index
+  [4;36;1mFlight Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+Completed in 62ms (View: 31, DB: 0) | 200 OK [http://localhost/flights]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#index (for 127.0.0.1 at 2010-10-21 23:14:47) [GET]
+  [4;35;1mFlight Load (0.0ms)[0m   [0mSELECT * FROM `flights` [0m
+Rendering template within layouts/flights
+Rendering flights/index
+  [4;36;1mFlight Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+Completed in 172ms (View: 141, DB: 0) | 200 OK [http://localhost/flights]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing FlightsController#index (for 127.0.0.1 at 2010-10-21 23:15:54) [GET]
+  [4;35;1mFlight Load (0.0ms)[0m   [0mSELECT * FROM `flights` [0m
+Rendering template within layouts/flights
+Rendering flights/index
+  [4;36;1mFlight Columns (0.0ms)[0m   [0;1mSHOW FIELDS FROM `flights`[0m
+Completed in 46ms (View: 31, DB: 0) | 200 OK [http://localhost/flights]
