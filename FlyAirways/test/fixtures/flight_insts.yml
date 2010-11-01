@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  flight_id: 1
+  date: 2010-10-30
+  seat_availablity: 1
+
+two:
+  flight_id: 1
+  date: 2010-10-30
+  seat_availablity: 1

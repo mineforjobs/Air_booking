@@ -1,0 +1,13 @@
+<h1> New Seat</h1>
+
+<% form_for(@seat,:url=>{:action=>'create'}) do |f| %>
+<%= f.error_messages %>
+  <p>flight_id:   <br/> <%=  f.text_field :flight_id %>       </p>
+  <p>name:        <br/> <%=  f.text_field :name %>       </p>
+  <p>address:   <br/> <%=  f.text_field :address %>       </p>
+  <p>contact_no:     <br/> <%=  f.text_field :contact_no %>       </p>
+  <p>baggage:       <br/> <%=  f.text_field :baggage %>       </p>
+  
+ <%= f.submit "create" %>
+
+  <%end%>

@@ -1,0 +1,34 @@
+<h1>Flight Detail</h1>
+<table>
+   <tr>
+    <td>flight Number</td>
+    <td><%= @flight.flight_no %></td>
+  </tr>
+  <tr>
+    <td>source</td>
+    <td><%= @flight.source %></td>
+  </tr>
+  <tr>
+    <td>destination </td>
+    <td><%= @flight.destination %></td>
+  </tr>
+  <tr>
+    <td>departure </td>
+    <td><%= @flight.departure_time %></td>
+  </tr>
+  <tr>
+    <td>Arrival </td>
+    <td><%= @flight.arrival_time %></td>
+  </tr>
+    <tr>
+    <td>capacity</td>
+    <td><%= @flight.capacity %></td>
+  </tr>
+  <tr>
+    <td>price</td>
+    <td><%= @flight.price %></td>
+  </tr>
+</table>
+
+<p><%= link_to 'Back','/flights' %></p>
+

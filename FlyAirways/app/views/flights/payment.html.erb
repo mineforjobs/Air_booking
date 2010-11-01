@@ -1,0 +1,53 @@
+<p>
+  <b>Title:</b>
+  <%=h @user.title %>
+</p>
+
+<p>
+  <b>First name:</b>
+  <%=h @user.f_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%=h @user.l_name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%=h @user.address %>
+</p>
+
+<p>
+  <b>Contact Number:</b>
+  <%=h @user.contact_no %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @user.email %>
+</p>
+
+<p>
+  <b>Payment_type:</b>
+  <%=h @user.payment_type %>
+</p>
+
+<p>
+  <b>card_no:</b>
+  <%=h @user.card_no %>
+</p>
+<p>
+  <b>Expiry Date</b>
+  <%=h @user.exp_date %>
+</p>
+<p>
+  <b>Issue Date</b>
+  <%=h @user.issue_date %>
+</p>
+<p>
+  <big><b>Total Price:</b>
+  <%=h @flight.price %></big>
+</p>
+   <a href="/flights/<%= @flight.id %>/paid">Pay</a>|
+<%= link_to 'Back', users_path %>

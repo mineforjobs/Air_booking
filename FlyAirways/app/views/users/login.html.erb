@@ -1,0 +1,21 @@
+
+<%= flash[:error] %>
+<%= form_tag :action=>'authenticate' %>
+
+  <table>
+    <tr align="center">
+      <td>User name:</td>
+      <td><%= text_field("userform", "email",:size=>"20" ) %></td>
+    </tr>
+    <tr align="center">
+      <td>Password :</td>
+      <td><%= password_field("userform", "password",:size=>"20" ) %></td>
+    </tr>
+    <tr align="center" >
+      <td colspan="2"><input type="submit" value=" LOGIN " /></td>
+    </tr>
+    <tr align="center">
+      <td colspan="2">Not Registered? <a href="/users/new">Click here</a>
+      </td>
+    </tr>
+  </table>

@@ -1,0 +1,48 @@
+<h1>Flight Detail</h1>
+<table>
+   <tr>
+    <td>Flight no</td>
+    <td><%= @flight.flight_no %></td>
+  </tr>
+  <tr>
+    <td>Source</td>
+    <td><%= @flight.source %></td>
+  </tr>
+  <tr>
+    <td>Destination </td>
+    <td><%= @flight.destination %></td>
+  </tr>
+  <tr>
+    <td>Departure </td>
+    <td><%= @flight.departure_time %></td>
+  </tr>
+  <tr>
+    <td>Arrival </td>
+    <td><%= @flight.arrival_time %></td>
+  </tr>
+  <tr>
+    <td>Capacity</td>
+    <td><%= @flight.capacity %></td>
+  </tr>
+  <tr>
+    <td>Price</td>
+    <td><%= @flight.price %></td>
+  </tr>
+  
+</table>
+
+<br/><br/>
+<%if @flight_inst.seat_availablity > 0 %>
+    <b>Number of Seats available for <%= session[:search_date] %> date are :</b>
+    <%= @flight_inst.seat_availablity %><br/><br/>
+    <% if controller.is_guest? %>
+    <a href="/users/login">Book Seat</a>&nbsp;&nbsp;&nbsp;(Please Login first to book the seat)
+    <%else%>
+    <a href="/flights/<%= @flight.id %>/payment">Book Seat</a>
+    <%end%>
+<%else%>
+    <b> Sorry,no seats available on this flight for given date.</b>
+<%end%>
+  
+<p><%= link_to 'Back','/flights' %></p>
+

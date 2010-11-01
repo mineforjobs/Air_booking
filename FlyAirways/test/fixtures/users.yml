@@ -1,0 +1,31 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  f_name: MyString
+  l_name: MyString
+  address: MyText
+  contact_no: 9.99
+  email: MyString
+  role: MyString
+  password: MyString
+  payment_type: MyString
+  card_no: 1
+  exp_date: 2010-10-30
+  issue_date: 2010-10-30
+  security_code: 1
+
+two:
+  title: MyString
+  f_name: MyString
+  l_name: MyString
+  address: MyText
+  contact_no: 9.99
+  email: MyString
+  role: MyString
+  password: MyString
+  payment_type: MyString
+  card_no: 1
+  exp_date: 2010-10-30
+  issue_date: 2010-10-30
+  security_code: 1

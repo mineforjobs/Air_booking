@@ -1,0 +1,10 @@
+
+<!--#displays hello (username)-->
+<h1>Welcome <strong> <%=session[:user_id]%></strong></h1>
+<p align="left">
+<!--  <h3>  Congratulations!!!!</h3>-->
+<br/>  You have logged in successfully.
+</p>
+<p><%= link_to "Change password",:controller => "users", :action => "edit_password" %></p>
+
+

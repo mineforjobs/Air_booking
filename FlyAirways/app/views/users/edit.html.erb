@@ -1,0 +1,67 @@
+<%if controller.is_admin?%>
+<h1>Edit user</h1>
+<%else%>
+<h1>Profile settings</h1>
+<%end%>
+
+<% form_for(@user) do |f| %>
+  <%= f.error_messages %>
+<table>
+
+  <tr>
+    <td><%= f.label :title %> </td>
+    <td> <%= f.collection_select :title, User::TITLES, :to_s, :to_s,:include_blank => false %></td>
+  </tr>
+  <tr>
+    <td> <%= f.label 'First Name' %></td>
+    <td> <%= f.text_field :f_name %></td>
+  </tr>
+  <tr>
+    <td> <%= f.label :l_name %></td>
+    <td> <%= f.text_field :l_name %></td>
+  </tr>
+  <tr>
+    <td> <%= f.label :address %> </td>
+    <td> <%= f.text_area :address %></td>
+  </tr>
+  <tr>
+    <td> <%= f.label :contact_no %></td>
+    <td> <%= f.text_field :contact_no %></td>
+  </tr>
+  <tr>
+    <td> <%= f.label :email %></td>
+    <td> <%= f.text_field :email %></td>
+  </tr>
+  <% if controller.is_admin? %>
+    <input type="hidden" name="user[role]" value="employee" />
+    <%else if controller.is_employee? or controller.is_customer? or controller.is_guest?%>
+    <input type="hidden" name="user[role]" value="customer" />
+    <%end%>
+  
+  <tr>
+    <td> <%= f.label :payment_type %></td>
+    <td> <%= f.collection_select :payment_type, User::PAYTYPE, :to_s, :to_s,:include_blank => false %></td>
+
+  </tr>
+  <tr>
+    <td> <%= f.label :card_no %></td>
+    <td> <%= f.text_field :card_no %></td>
+  </tr>
+  <tr>
+    <td> <%= f.label :exp_date %></td>
+    <td> <%=  calendar_date_select_tag "user[exp_date]",Date.today, :time => false,:format => "%Y-%m-%d" %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :issue_date %> </td>
+    <td> <%=  calendar_date_select_tag "user[issue_date]",Date.today, :time => false,:format => "%Y-%m-%d" %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :security_code %> </td>
+    <td> <%= f.text_field :security_code %></td>
+  </tr>
+</table>
+    <%= f.submit 'Update' %>
+
+<% end %>
+<% end %>
+<%= link_to 'Back', users_path %>

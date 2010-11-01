@@ -1,0 +1,29 @@
+<h1>Listing seats</h1>
+
+<table>
+  <tr>
+    <th>flight_id</th>
+    <th>name</th>
+    <th>address</th>
+    <th>contact_no</th>
+    <th>baggage</th>
+    
+  </tr>
+
+<% for seat in @seats %>
+  <tr>
+    <td><%=h seat.flight_id %></td>
+    <td><%=h seat.name %></td>
+    <td><%=h seat.address %></td>
+    <td><%=h seat.contact_no %></td>
+    <td><%=h seat.baggage %></td>
+    
+    <td><a href="/seats/<%= seat.id %>">Show</a></td>
+    <td><a href="/seats/<%= seat.id %>/edit">Edit</a></td>
+    <td><a href="/seats/<%= seat.id %>/delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+  </tr>
+  <%end%>
+
+  <tr><td><br/><%= link_to "Add New Seat", :action => "new" %></td></tr>
+</table>
+

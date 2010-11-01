@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Flights: <%= controller.action_name %></title>
+  <%= javascript_include_tag 'prototype' %>
+  <%= stylesheet_link_tag 'default' %>
+  <%= calendar_date_select_includes %>
+
+</head>
+<body>
+
+
+<div id="header">
+	<div id="logo">
+		<h1><a href="#">Fly Airways<sup></sup></a></h1>
+                <h2>book seats for flights</h2>
+	</div>
+	<div id="menu">
+		<ul>
+			<li class="active"><a href="/users/home">homepage</a></li>
+                        <li class="active"><a href="/flights">Flights</a></li>
+                        <li class="active"><a href="/airports">Airports</a></li>
+                        <%if controller.is_admin? or controller.is_employee? or controller.is_customer?%>
+                        <li class="active"><a href="/users">profile settings</a></li>
+                        <%end%>
+		</ul>
+          
+          <div id="link" align="right">
+              <%=if session[:user_id].nil?
+              "<a href='/users/login/'>Login</a>"
+               else
+                link_to "logout",:controller => "users", :action => "logout"
+               end%>
+
+            <b> Welcome <%=if session[:user_id].nil?
+                  "guest"
+              else
+                session[:user_id]
+              end %> !
+            </b></div>
+	</div>
+</div>
+<!-- end header -->
+
+<!-- start page -->
+<div id="page">
+	<!-- start content -->
+        <p style="color: green"><%= notice %></p>
+        <div id="content">
+
+		<%= yield %>
+	</div>
+	<!-- end content -->
+
+<!-- start sidebar -->
+	<div id="sidebar">
+		<ul>
+			<li id="search">
+				<h2><b class="text1">Search</b></h2>
+                                <% form_tag "/flights/find" do%>
+                                Source:
+                                <%= collection_select :flight, :source, Airport.find(:all,:order => :name), :name, :name,{:include_blank => false } %>
+                                Destination:
+                                <%= collection_select :flight, :destination, Airport.find(:all,:order => :name), :name, :name,{:include_blank => false } %>
+                                Date:
+                                <%=  calendar_date_select_tag "flight[date]",Date.today, :time => false,:format => "%Y-%m-%d" %>
+                                <%=submit_tag "search"  %>
+                                <%end%>
+				
+			</li>
+			
+                </ul>
+	</div>
+	<!-- end sidebar -->
+<div style="clear: both;">&nbsp;</div>
+</div>
+<!-- end page -->
+
+</body>
+</html>

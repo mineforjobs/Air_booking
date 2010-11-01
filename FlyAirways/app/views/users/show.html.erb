@@ -1,0 +1,60 @@
+<p>
+  <b>Title:</b>
+  <%=h @user.title %>
+</p>
+
+<p>
+  <b>F name:</b>
+  <%=h @user.f_name %>
+</p>
+
+<p>
+  <b>L name:</b>
+  <%=h @user.l_name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%=h @user.address %>
+</p>
+
+<p>
+  <b>Contact no:</b>
+  <%=h @user.contact_no %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @user.email %>
+</p>
+
+<p>
+  <b>Role:</b>
+  <%=h @user.role %>
+</p>
+
+
+<p>
+  <b>Payment type:</b>
+  <%=h @user.payment_type %>
+</p>
+
+<p>
+  <b>Card no:</b>
+  <%=h @user.card_no %>
+</p>
+
+<p>
+  <b>Expiry date:</b>
+  <%=h @user.exp_date %>
+</p>
+
+<p>
+  <b>Issue date:</b>
+  <%=h @user.issue_date %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

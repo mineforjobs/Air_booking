@@ -1,0 +1,18 @@
+<p>
+  <b>Name:</b>
+  <%=h @airport.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%=h @airport.address %>
+</p>
+
+<p>
+  <b>Contact no:</b>
+  <%=h @airport.contact_no %>
+</p>
+
+
+<%= link_to 'Edit', edit_airport_path(@airport) %> |
+<%= link_to 'Back', airports_path %>

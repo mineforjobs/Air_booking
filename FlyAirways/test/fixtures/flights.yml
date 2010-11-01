@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  flight_no: 1
+  source: MyString
+  destination: MyString
+  capacity: 1
+  departure_time: 2010-10-30 14:21:55
+  arrival_time: 2010-10-30 14:21:55
+  price: 9.99
+
+two:
+  flight_no: 1
+  source: MyString
+  destination: MyString
+  capacity: 1
+  departure_time: 2010-10-30 14:21:55
+  arrival_time: 2010-10-30 14:21:55
+  price: 9.99

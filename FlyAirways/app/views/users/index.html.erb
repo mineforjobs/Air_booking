@@ -1,0 +1,46 @@
+<h1>Listing users</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Address</th>
+    <th>Contact no</th>
+    <th>Email</th>
+    <th>Role</th>
+    <th>Payment type</th>
+    <th>Card no</th>
+    <th>Exp date</th>
+    <th>Issue date</th>
+    
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%=h user.title %></td>
+    <td><%=h user.f_name %></td>
+    <td><%=h user.l_name %></td>
+    <td><%=h user.address %></td>
+    <td><%=h user.contact_no %></td>
+    <td><%=h user.email %></td>
+    <td><%=h user.role %></td>
+    
+    <td><%=h user.payment_type %></td>
+    <td><%=h user.card_no %></td>
+    <td><%=h user.exp_date %></td>
+    <td><%=h user.issue_date %></td>
+    
+    <td><%= link_to 'Show', user %></td>
+    <td><%= link_to 'Edit', edit_user_path(user) %></td>
+    <%if controller.is_admin?%>
+    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+    <%end%>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<%if controller.is_admin?%>
+<%= link_to 'New user', new_user_path %>
+<%end%>

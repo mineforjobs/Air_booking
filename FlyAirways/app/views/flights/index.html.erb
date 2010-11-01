@@ -1,0 +1,41 @@
+<h1>Listing flights</h1>
+
+<table>
+  <tr>
+    <th>Fight Number</th>
+    <th>Source</th>
+    <th>Destination</th>
+    <th>Departure</th>
+    <th>Arrival</th>
+    <th>Capacity</th>
+    <th>Price</th>
+  </tr>
+
+<% for flight in @flights %>
+  <tr>
+    <td><%=h flight.flight_no %></td>
+    <td><%=h flight.source %></td>
+    <td><%=h flight.destination %></td>
+    <td><%=h flight.departure_time %></td>
+    <td><%=h flight.arrival_time %></td>
+    <td><%=h flight.capacity %></td>
+    <td><%=h flight.price %></td>
+
+    
+    <td><a href="/flights/<%= flight.id %>/check_availability">Check Availability</a></td>
+    
+    <% if controller.is_employee? or controller.is_admin? %>
+    <td><a href="/flights/<%= flight.id %>/edit">Edit</a></td>
+    <td><a href="/flights/<%= flight.id %>/delete" onclick="return confirm('Are you sure?');">Delete</a></td>
+    </tr>
+    <%end%><!--end if--->
+
+<%end%>
+<!--end for--->
+
+    <% if controller.is_employee? or controller.is_admin? %>
+  <tr><td><br/><%= link_to "Add New Flight", :action => "new" %></td></tr>
+    <%end%>
+  
+</table>
+

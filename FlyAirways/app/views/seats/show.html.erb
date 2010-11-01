@@ -1,0 +1,26 @@
+<h1>Seats Detail</h1>
+<table>
+  
+  <tr>
+    <td>flight id</td>
+    <td><%= @seat.flight_id %></td>
+  </tr>
+  <tr>
+    <td>name</td>
+    <td><%= @seat.name %></td>
+  </tr>
+  <tr>
+    <td>address </td>
+    <td><%= @seat.address %></td>
+  </tr>
+  <tr>
+    <td>contact number</td>
+    <td><%= @seat.contact_no %></td>
+  </tr>
+  <tr>
+    <td>baggage</td>
+    <td><%= @seat.baggage %></td>
+  </tr>
+</table>
+<p><%= link_to 'Back','/seats' %></p>
+

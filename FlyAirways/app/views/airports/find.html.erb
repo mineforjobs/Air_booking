@@ -1,0 +1,24 @@
+<h1>Listing airports</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Contact no</th>
+  </tr>
+
+<% @airports.each do |airport| %>
+  <tr>
+    <td><%=h airport.name %></td>
+    <td><%=h airport.address %></td>
+    <td><%=h airport.contact_no %></td>
+    <td><%= link_to 'Show', airport %></td>
+    <td><%= link_to 'Edit', edit_airport_path(airport) %></td>
+    <td><%= link_to 'Destroy', airport, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New airport', new_airport_path %>

@@ -1,0 +1,21 @@
+<h1> edit Flight</h1>
+
+<% form_for(@flight,:url=>{:action=>'update'}) do |f| %>
+<%= f.error_messages %>
+  <p>Flight Number:   <br/> <%=  f.text_field :flight_no %>       </p>
+  <p>Source:        <br/>
+   <%= collection_select :flight, :source, Airport.find(:all,:order => :name), :name, :name,{:include_blank => true } %>
+    &nbsp;<%=link_to "Add New Souce","/airports/new"%>
+  </p>
+  <p>Destination:   <br/>
+  <%= collection_select :flight, :destination, Airport.find(:all,:order => :name), :name, :name,{:include_blank => true } %>
+    &nbsp;<%=link_to "Add New Destination","/airports/new"%>
+  </p>
+  <p>Departure Time:     <br/> <%= time_select 'flight', 'departure_time', {:minute_step => 15} %></p>
+  <p>Arrival Time:       <br/><%= time_select 'flight', 'arrival_time', {:minute_step => 15} %></p>
+  <p>capacity: <br/> <%= f.text_field :capacity %>  </p>
+  <p>price: <br/> <%= f.text_field :price %> (GBP) </p>
+
+ <%= f.submit "update" %>
+
+  <%end%>
